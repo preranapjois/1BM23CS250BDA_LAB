@@ -1,0 +1,249 @@
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/Desktop/CS259_BDA$ start-all.sh~
+start-all.sh~: command not found
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/Desktop/CS259_BDA$ cd ..
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/Desktop$ start-all.sh~
+start-all.sh~: command not found
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/Desktop$ cd ..
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~$ start-all.sh~
+start-all.sh~: command not found
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~$ cd ~/
+AverageTemperatureHadoop/ Documents/                .gnupg/                   local/                    .p2/                      .ssh/                     .thunderbird/
+.cache/                   Downloads/                hadoop/                   .mongodb/                 Pictures/                 .swt/                     Videos/
+.config/                  .eclipse/                 hadoopdata/               .mozilla/                 Public/                   TemperatureHadoop/        
+Desktop/                  eclipse-workspace/        .local/                   Music/                    snap/                     Templates/                
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~$ cd ~/hadoop
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop$ cd sbin
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ start-all.sh
+WARNING: Attempting to start all Apache Hadoop daemons as hadoop in 10 seconds.
+WARNING: This is not a recommended production deployment configuration.
+WARNING: Use CTRL-C to abort.
+Starting namenodes on [localhost]
+Starting datanodes
+Starting secondary namenodes [bmscecse-HP-Elite-Tower-600-G9-Desktop-PC]
+Starting resourcemanager
+Starting nodemanagers
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hdfs dfs -mkdir /bda_hadoop_CS259
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ ls
+distribute-exclude.sh  hadoop-daemons.sh  mr-jobhistory-daemon.sh  start-all.sh       start-dfs.sh         start-yarn.sh  stop-balancer.sh  stop-secure-dns.sh  workers.sh
+FederationStateStore   httpfs.sh          refresh-namenodes.sh     start-balancer.sh  start-secure-dns.sh  stop-all.cmd   stop-dfs.cmd      stop-yarn.cmd       yarn-daemon.sh
+hadoop-daemon.sh       kms.sh             start-all.cmd            start-dfs.cmd      start-yarn.cmd       stop-all.sh    stop-dfs.sh       stop-yarn.sh        yarn-daemons.sh
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ ls -a
+.                      FederationStateStore  httpfs.sh                refresh-namenodes.sh  start-balancer.sh  start-secure-dns.sh  stop-all.cmd      stop-dfs.cmd        stop-yarn.cmd  yarn-daemon.sh
+..                     hadoop-daemon.sh      kms.sh                   start-all.cmd         start-dfs.cmd      start-yarn.cmd       stop-all.sh       stop-dfs.sh         stop-yarn.sh   yarn-daemons.sh
+distribute-exclude.sh  hadoop-daemons.sh     mr-jobhistory-daemon.sh  start-all.sh          start-dfs.sh       start-yarn.sh        stop-balancer.sh  stop-secure-dns.sh  workers.sh
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop fs -ls /
+Found 16 items
+drwxr-xr-x   - hadoop supergroup          0 2023-05-15 14:47 /abc
+drwxr-xr-x   - hadoop supergroup          0 2023-05-15 14:45 /abd
+drwxr-xr-x   - hadoop supergroup          0 2025-04-15 14:47 /bda_hadoop
+drwxr-xr-x   - hadoop supergroup          0 2026-03-31 15:11 /bda_hadoop_CS259
+drwxr-xr-x   - hadoop supergroup          0 2025-05-06 14:59 /bdalab
+drwxr-xr-x   - hadoop supergroup          0 2023-06-19 15:56 /in
+drwxr-xr-x   - hadoop supergroup          0 2023-05-19 11:47 /input
+drwxr-xr-x   - hadoop supergroup          0 2025-05-06 15:32 /lab0
+drwxr-xr-x   - hadoop supergroup          0 2023-06-19 15:54 /out
+drwxr-xr-x   - hadoop supergroup          0 2023-05-22 15:20 /output
+drwxr-xr-x   - hadoop supergroup          0 2023-05-22 15:44 /output1
+drwxr-xr-x   - hadoop supergroup          0 2023-05-22 15:11 /sample1
+drwxr-xr-x   - hadoop supergroup          0 2023-04-27 12:22 /sample2
+drwxr-xr-x   - hadoop supergroup          0 2025-04-16 11:59 /tejas.txt
+drwx------   - hadoop supergroup          0 2023-05-04 13:01 /tmp
+drwxr-xr-x   - hadoop supergroup          0 2025-05-27 15:03 /user
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hdfs dfs -put /home/hduser/Desktop/bda_local.txt /bda_hadoop_CS259/file.txt
+put: `/home/hduser/Desktop/bda_local.txt': No such file or directory
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ ^C
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hdfs dfs -put ~/Desktop/Hadoop_CS259/file.txt /bda_hadoop_CS259/file.txt
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hdfs dfs -cat /bda_hadoop_CS259/file.txt
+Hi Its a demo file for BDA Hadoop
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hdfs dfs -copyFromLocal ~/Desktop/Hadoop_CS259/file.txt /bda_hadoop_CS259/file_cp_local.txt
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hdfs dfs -cat /bda_hadoop_CS259/file_cp_local.txt
+Hi Its a demo file for BDA Hadoop
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hdfs dfs -get /bda_hadoop_CS259/file.txt ~/Desktop/Hadoop_CS259/downloaded_file.txt
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hdfs dfs -getmerge /bda_hadoop_CS259/file.txt /bda_hadoop_CS259/file_cp_local.txt ~/Desktop/Hadoop_CS259/downloaded_file_merge.txt
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ cat ^C
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ cat ~/Desktop/Hadoop_CS259/downloaded_file.txt
+Hi Its a demo file for BDA Hadoop
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ cat ~/Desktop/Hadoop_CS259/downloaded_file_merge.txt
+Hi Its a demo file for BDA Hadoop
+Hi Its a demo file for BDA Hadoop
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop fs -getfacl /bda_hadoop_CS259/
+# file: /bda_hadoop_CS259
+# owner: hduser
+# group: supergroup
+user::rwx
+group::r-x
+other::r-x
+# file: /bda_hadoop_CS259
+# owner: hadoop
+# group: supergroup
+user::rwx
+group::r-x
+other::r-x
+
+user::rwx: command not found
+group::r-x: command not found
+other::r-x: command not found
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop fs -getfacl /bda_hadoop_CS259/
+# file: /bda_hadoop_CS259
+# owner: hadoop
+# group: supergroup
+user::rwx
+group::r-x
+other::r-x
+
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hdfs dfs -copyToLocal /bda_hadoop_CS259/file.txt ~/Desktop/Hadoop_CS259/file_cpy.txt
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ cat ~/Desktop/Hadoop_CS259/file_cpy.txt
+Hi Its a demo file for BDA Hadoop
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop fs -mv /bda_hadoop_CS259/abc
+-mv: Not enough arguments: expected 2 but got 1
+Usage: hadoop fs [generic options]
+	[-appendToFile <localsrc> ... <dst>]
+	[-cat [-ignoreCrc] <src> ...]
+	[-checksum [-v] <src> ...]
+	[-chgrp [-R] GROUP PATH...]
+	[-chmod [-R] <MODE[,MODE]... | OCTALMODE> PATH...]
+	[-chown [-R] [OWNER][:[GROUP]] PATH...]
+	[-concat <target path> <src path> <src path> ...]
+	[-copyFromLocal [-f] [-p] [-l] [-d] [-t <thread count>] [-q <thread pool queue size>] <localsrc> ... <dst>]
+	[-copyToLocal [-f] [-p] [-crc] [-ignoreCrc] [-t <thread count>] [-q <thread pool queue size>] <src> ... <localdst>]
+	[-count [-q] [-h] [-v] [-t [<storage type>]] [-u] [-x] [-e] [-s] <path> ...]
+	[-cp [-f] [-p | -p[topax]] [-d] [-t <thread count>] [-q <thread pool queue size>] <src> ... <dst>]
+	[-createSnapshot <snapshotDir> [<snapshotName>]]
+	[-deleteSnapshot <snapshotDir> <snapshotName>]
+	[-df [-h] [<path> ...]]
+	[-du [-s] [-h] [-v] [-x] <path> ...]
+	[-expunge [-immediate] [-fs <path>]]
+	[-find <path> ... <expression> ...]
+	[-get [-f] [-p] [-crc] [-ignoreCrc] [-t <thread count>] [-q <thread pool queue size>] <src> ... <localdst>]
+	[-getfacl [-R] <path>]
+	[-getfattr [-R] {-n name | -d} [-e en] <path>]
+	[-getmerge [-nl] [-skip-empty-file] <src> <localdst>]
+	[-head <file>]
+	[-help [cmd ...]]
+	[-ls [-C] [-d] [-h] [-q] [-R] [-t] [-S] [-r] [-u] [-e] [<path> ...]]
+	[-mkdir [-p] <path> ...]
+	[-moveFromLocal [-f] [-p] [-l] [-d] <localsrc> ... <dst>]
+	[-moveToLocal <src> <localdst>]
+	[-mv <src> ... <dst>]
+	[-put [-f] [-p] [-l] [-d] [-t <thread count>] [-q <thread pool queue size>] <localsrc> ... <dst>]
+	[-renameSnapshot <snapshotDir> <oldName> <newName>]
+	[-rm [-f] [-r|-R] [-skipTrash] [-safely] <src> ...]
+	[-rmdir [--ignore-fail-on-non-empty] <dir> ...]
+	[-setfacl [-R] [{-b|-k} {-m|-x <acl_spec>} <path>]|[--set <acl_spec> <path>]]
+	[-setfattr {-n name [-v value] | -x name} <path>]
+	[-setrep [-R] [-w] <rep> <path> ...]
+	[-stat [format] <path> ...]
+	[-tail [-f] [-s <sleep interval>] <file>]
+	[-test -[defswrz] <path>]
+	[-text [-ignoreCrc] <src> ...]
+	[-touch [-a] [-m] [-t TIMESTAMP (yyyyMMdd:HHmmss) ] [-c] <path> ...]
+	[-touchz <path> ...]
+	[-truncate [-w] <length> <path> ...]
+	[-usage [cmd ...]]
+
+Generic options supported are:
+-conf <configuration file>        specify an application configuration file
+-D <property=value>               define a value for a given property
+-fs <file:///|hdfs://namenode:port> specify default filesystem URL to use, overrides 'fs.defaultFS' property from configurations.
+-jt <local|resourcemanager:port>  specify a ResourceManager
+-files <file1,...>                specify a comma-separated list of files to be copied to the map reduce cluster
+-libjars <jar1,...>               specify a comma-separated list of jar files to be included in the classpath
+-archives <archive1,...>          specify a comma-separated list of archives to be unarchived on the compute machines
+
+The general command line syntax is:
+command [genericOptions] [commandOptions]
+
+Usage: hadoop fs [generic options] -mv <src> ... <dst>
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop fs -mv /bda_hadoop_CS259 /abc_CS259
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop fs -ls /abc_CS259
+Found 2 items
+-rw-r--r--   1 hadoop supergroup         34 2026-03-31 15:20 /abc_CS259/file.txt
+-rw-r--r--   1 hadoop supergroup         34 2026-03-31 15:22 /abc_CS259/file_cp_local.txt
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop fs -cp /hello_CS259 /hadoop_lab_CS259
+cp: `/hello_CS259': No such file or directory
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop fs -cp /hello/ /hadoop_lab_CS259
+cp: `/hello/': No such file or directory
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hdfs fs -ls
+ERROR: fs is not COMMAND nor fully qualified CLASSNAME.
+Usage: hdfs [OPTIONS] SUBCOMMAND [SUBCOMMAND OPTIONS]
+
+  OPTIONS is none or any of:
+
+--buildpaths                       attempt to add class files from build tree
+--config dir                       Hadoop config directory
+--daemon (start|status|stop)       operate on a daemon
+--debug                            turn on shell script debug mode
+--help                             usage information
+--hostnames list[,of,host,names]   hosts to use in worker mode
+--hosts filename                   list of hosts to use in worker mode
+--loglevel level                   set the log4j level for this command
+--workers                          turn on worker mode
+
+  SUBCOMMAND is one of:
+
+
+    Admin Commands:
+
+cacheadmin           configure the HDFS cache
+crypto               configure HDFS encryption zones
+debug                run a Debug Admin to execute HDFS debug commands
+dfsadmin             run a DFS admin client
+dfsrouteradmin       manage Router-based federation
+ec                   run a HDFS ErasureCoding CLI
+fsck                 run a DFS filesystem checking utility
+haadmin              run a DFS HA admin client
+jmxget               get JMX exported values from NameNode or DataNode.
+oev                  apply the offline edits viewer to an edits file
+oiv                  apply the offline fsimage viewer to an fsimage
+oiv_legacy           apply the offline fsimage viewer to a legacy fsimage
+storagepolicies      list/get/set/satisfyStoragePolicy block storage policies
+
+    Client Commands:
+
+classpath            prints the class path needed to get the hadoop jar and the required libraries
+dfs                  run a filesystem command on the file system
+envvars              display computed Hadoop environment variables
+fetchdt              fetch a delegation token from the NameNode
+getconf              get config values from configuration
+groups               get the groups which users belong to
+lsSnapshottableDir   list all snapshottable dirs owned by the current user
+snapshotDiff         diff two snapshots of a directory or diff the current directory contents with a snapshot
+version              print the version
+
+    Daemon Commands:
+
+balancer             run a cluster balancing utility
+datanode             run a DFS datanode
+dfsrouter            run the DFS router
+diskbalancer         Distributes data evenly among disks on a given node
+httpfs               run HttpFS server, the HDFS HTTP Gateway
+journalnode          run the DFS journalnode
+mover                run a utility to move block replicas across storage types
+namenode             run the DFS namenode
+nfs3                 run an NFS version 3 gateway
+portmap              run a portmap service
+secondarynamenode    run the DFS secondary namenode
+sps                  run external storagepolicysatisfier
+zkfc                 run the ZK Failover Controller daemon
+
+SUBCOMMAND may print help when invoked w/o parameters or with -h.
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop fs -ls /
+Found 16 items
+drwxr-xr-x   - hadoop supergroup          0 2023-05-15 14:47 /abc
+drwxr-xr-x   - hadoop supergroup          0 2026-03-31 15:22 /abc_CS259
+drwxr-xr-x   - hadoop supergroup          0 2023-05-15 14:45 /abd
+drwxr-xr-x   - hadoop supergroup          0 2025-04-15 14:47 /bda_hadoop
+drwxr-xr-x   - hadoop supergroup          0 2025-05-06 14:59 /bdalab
+drwxr-xr-x   - hadoop supergroup          0 2023-06-19 15:56 /in
+drwxr-xr-x   - hadoop supergroup          0 2023-05-19 11:47 /input
+drwxr-xr-x   - hadoop supergroup          0 2025-05-06 15:32 /lab0
+drwxr-xr-x   - hadoop supergroup          0 2023-06-19 15:54 /out
+drwxr-xr-x   - hadoop supergroup          0 2023-05-22 15:20 /output
+drwxr-xr-x   - hadoop supergroup          0 2023-05-22 15:44 /output1
+drwxr-xr-x   - hadoop supergroup          0 2023-05-22 15:11 /sample1
+drwxr-xr-x   - hadoop supergroup          0 2023-04-27 12:22 /sample2
+drwxr-xr-x   - hadoop supergroup          0 2025-04-16 11:59 /tejas.txt
+drwx------   - hadoop supergroup          0 2023-05-04 13:01 /tmp
+drwxr-xr-x   - hadoop supergroup          0 2025-05-27 15:03 /user
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop fs -cp /abc_CS259 /hadoop_lab_CS259
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ 
